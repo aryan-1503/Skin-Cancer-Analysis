@@ -28,7 +28,7 @@ const Left = ({ setPrediction, setLoading }) => {
         formData.append('image', image);
 
         try {
-            const response = await axios.post('http://localhost:5000/predict', formData, {
+            const response = await axios.post('https://skin-cancer-analysis.onrender.com/predict', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -57,10 +57,6 @@ const Left = ({ setPrediction, setLoading }) => {
                             <div className="image-form">
                                 <label htmlFor="InputImage" className="input-btn">
                                     Upload Image
-                                    <input type="file" accept="image/*" name="InputImage" id="InputImage" style={{ display: "none" }} onChange={handleImageSelection} />
-                                </label>
-                                <label htmlFor="InputImage" className="input-btn">
-                                    Capture
                                     <input type="file" accept="image/*" name="InputImage" id="InputImage" style={{ display: "none" }} onChange={handleImageSelection} />
                                 </label>
                             </div>
