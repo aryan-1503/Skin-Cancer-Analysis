@@ -1,9 +1,9 @@
 from flask import Flask, request, jsonify
 from PIL import Image
 from flask_cors import CORS
-from tensorflow.keras.models import load_model
 import numpy as np
 import pickle
+from keras.models import load_model
 
 app = Flask(__name__)
 CORS(app)
@@ -39,5 +39,4 @@ def predict():
     return jsonify(prediction)
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+

@@ -1,9 +1,10 @@
 // Left.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import demoImage from '../images/demo2.png';
 import '../style/Left.css';
 
+// eslint-disable-next-line react/prop-types
 const Left = ({ setPrediction, setLoading }) => {
     const [selectedImage, setSelectedImage] = useState(demoImage);
     const [image,setImage] = useState(null);
@@ -18,7 +19,7 @@ const Left = ({ setPrediction, setLoading }) => {
             };
             reader.readAsDataURL(file);
         }
-    };
+    };  
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -54,8 +55,12 @@ const Left = ({ setPrediction, setLoading }) => {
                     <div className="buttons">
                         <form onSubmit={handleSubmit}>
                             <div className="image-form">
-                                <label htmlFor="InputImage" id="input-btn">
+                                <label htmlFor="InputImage" className="input-btn">
                                     Upload Image
+                                    <input type="file" accept="image/*" name="InputImage" id="InputImage" style={{ display: "none" }} onChange={handleImageSelection} />
+                                </label>
+                                <label htmlFor="InputImage" className="input-btn">
+                                    Capture
                                     <input type="file" accept="image/*" name="InputImage" id="InputImage" style={{ display: "none" }} onChange={handleImageSelection} />
                                 </label>
                             </div>
